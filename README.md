@@ -12,9 +12,10 @@ If not, install it
 ```bash 
 bash gcloud-cli-setup.sh 
 ```
-# Copy and past the following commands into the terminal:
 
-## To create a new project (NOTE: lowercase only)
+## COPY and PASTE the following commands into the terminal:
+
+### To create a new project (NOTE: strings are lowercase only)
 
 ```bash
  PROJECT_ID=project_name${RANDOM} 
@@ -24,26 +25,39 @@ bash gcloud-cli-setup.sh
 ```
 
 
-## To authenticate your GCP account and cache the access key
+### To authenticate your GCP account and cache the access key
 
 ```bash
  gcloud auth application-default login 
 ```
 
+
 ## Click output-link / choose account / copy key / past in terminal then ENTER
 
-# Enable the API for every service your script will be calling
-## To enable compute API 
+## Enable the API for every service your script will be calling
+
+### To enable compute API 
 
 ```bash
  gcloud services enable compute.googleapis.com 
 ```
 
-# With a valid ssh key, run 
+## With a valid ssh key, run 
+
 ```bash
- terraform output 
-``` 
-# Now you can ssh into the either VM with the command syntax below.
+ terraform init
+ terraform plan
+ terraform apply --auto-approve 
+```
+
+
+# To ssh into your VMs, run
+
+```bash
+ terraform output
+```
+
+### Using data from the output, you can ssh into the either VM with the command syntax below.
 
 ```bash
  gcloud compute ssh --zone "vm-zone" "vm-name"  --project "vm-project_id" 
